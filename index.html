@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elfen Lied</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="fonts.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">Elfen lied</div>
+        <nav class="menu-container">
+            <div class="nav-links">
+                <a href="#" class="nav-item">Каталог</a>
+                <a href="#blog" class="nav-item">Блог</a>
+                <a href="javascript:void(0);" class="nav-item open-map">Контакты</a>
+            </div>
+        </nav>
+    </header>
+
+    <div id="mapModal" class="modal">
+        <div class="modal-contentcarts">
+            <button class="close-btn">&times;</button> 
+            <div id="map" class="map-container"></div>
+        </div>
+    </div>
+
+    <section class="banner">
+        <div class="banner-container">
+            <!-- Первый баннер -->
+            <div class="banner-item active">
+                <img class="img1" src="img/NewLamp.svg" alt="Лампа Santa Trinita">
+                <h2>Santa Trinita</h2>
+                <p class="prew">Функциональная дизайнерская лампа для создания максимально 
+                    комфортного освещения</p>
+                    <img class="price" src="img/цена.svg" alt="цена">
+                <button class="buy-btn">
+                    <img src="img/кнопка.svg" alt="Купить">
+                </button>
+            </div>
+
+            <!-- Второй баннер с поиском -->
+            <div class="banner-item search-banner">
+                <div class="search-container">
+                    <img src="logo/search.svg" alt="Поиск" class="search-icon" onclick="openSearchModal()">
+                    <a href="#" class="search-link" onclick="openSearchModal()">Поиск</a>
+                </div>
+                <img class="img" src="img/table.svg" alt="Товар">
+                <h2>Слайд 2</h2>
+            </div>
+
+            <!-- Третий баннер с иконками -->
+            <div class="banner-item third-banner">
+                <div class="icons-container">
+                    <img src="logo/favor.svg" alt="Избранное" class="icon" onclick="openFavoritesModal()">
+                    <img src="logo/profil.svg" alt="Авторизация" class="icon" onclick="openAuthModal()">
+                    <img src="logo/union.svg" alt="Корзина" class="icon" onclick="openCartModal()">
+                </div>
+                <img class="img" src="img/table2.svg" alt="Товар">
+                <h2>Слайд 3</h2>
+            </div>
+        </div>
+    </section>
+
+    <!-- Раздел "Категории" -->
+<section class="categories">
+    <h2 class="categories-title">КАТЕГОРИИ</h2>
+    <div class="categories-container">
+        <div class="category-item">
+            <img class="plashka" src="img/плашка.svg" alt="">
+            <img src="img/Subtract.svg" alt="Напольные зеркала" class="category-img">
+            <img class="mirror" src="img/зеркало.svg" alt="">
+            <p class="category-name">НАПОЛЬНЫЕ<br>ЗЕРКАЛА</p>
+            <button class="category-toggle" onclick="toggleCategory(this)">
+                <img src="img/butcat.svg" alt="">
+            </button>
+            <div class="category-products">
+                <div class="product-item">Товар 1
+                    <img src="img/sophisticated1.svg" alt="">
+                </div>
+                <div class="product-item">Товар 2
+                    <img src="img/sophisticated2.svg" alt="">
+                </div>
+                <div class="product-item">Товар 3
+                    <img src="img/sophisticated3.svg" alt="">
+                </div>
+                <div class="product-item">Товар 4
+                    <img src="img/sophisticated4.svg" alt="">
+                </div>
+                <div class="product-item">Товар 5
+                    <img src="img/sophisticated5.svg" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="category-item">
+            <img class="plashka" src="img/плашка.svg" alt="">
+            <img src="img/Subtract.svg" alt="Торшеры и лампы" class="category-img">
+            <img class="mirror" src="img/зеркало (1).svg" alt="">
+            <p class="category-name">ТОРШЕРЫ<br>И ЛАМПЫ</p>
+            <button class="category-toggle" onclick="toggleCategory(this)">
+                <img src="img/butcat.svg" alt="">
+            </button>
+            <div class="category-products">
+                <div class="product-item">Товар 1</div>
+                <div class="product-item">Товар 2</div>
+                <div class="product-item">Товар 3</div>
+                <div class="product-item">Товар 4</div>
+                <div class="product-item">Товар 5</div>
+            </div>
+        </div>
+        <div class="category-item">
+            <img class="plashka" src="img/плашка.svg" alt="">
+            <img src="img/Subtract.svg" alt="Кресла и стулья" class="category-img">
+            <img class="mirror" src="img/soph.svg" alt="">
+            <p class="category-name">КРЕСЛА<br>И СТУЛЬЯ</p>
+            <button class="category-toggle" onclick="toggleCategory(this)">
+                <img src="img/butcat.svg" alt="">
+            </button>
+            <div class="category-products">
+                <div class="product-item">Товар 1</div>
+                <div class="product-item">Товар 2</div>
+                <div class="product-item">Товар 3</div>
+                <div class="product-item">Товар 4</div>
+                <div class="product-item">Товар 5</div>
+            </div>
+        </div>
+        <div class="category-item">
+            <img class="plashka" src="img/плашка.svg" alt="">
+            <img src="img/Subtract.svg" alt="Столы и тумбы" class="category-img">
+            <img class="mirror" src="img/зеркало (2).svg" alt="">
+            <p class="category-name">СТОЛЫ<br>И ТУМБЫ</p>
+            <button class="category-toggle" onclick="toggleCategory(this)">
+                <img src="img/butcat.svg" alt="">
+            </button>
+            <div class="category-products">
+                <div class="product-item">Товар 1</div>
+                <div class="product-item">Товар 2</div>
+                <div class="product-item">Товар 3</div>
+                <div class="product-item">Товар 4</div>
+                <div class="product-item">Товар 5</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Модальное окно корзины -->
+<div id="cartModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Корзина</h2>
+        <ul id="cartItems"></ul> 
+    </div>
+</div>
+<script src="script.js" defer></script>
+<script src="https://api-maps.yandex.ru/2.1/?apikey=61ddc7bf-f42b-4eea-bcab-b996aede1bd8&lang=ru_RU"></script>
+</body>
+</html>

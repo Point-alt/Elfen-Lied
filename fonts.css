@@ -1,0 +1,20 @@
+@font-face {
+  font-family: 'EuclidCircularA-Bold';
+  src: url(/fonts/EuclidCircularA-Bold.woff2);
+}
+@font-face {
+  font-family: 'EuclidCircularA-Medium';
+  src: url(/fonts/EuclidCircularA-Medium.woff2);
+}
+@font-face {
+  font-family: 'EuclidCircularA-Regular';
+  src: url(/fonts/EuclidCircularA-Regular.woff2);
+}
+@font-face {
+  font-family: 'EuclidCircularA-SemiBold';
+  src: url(/fonts/EuclidCircularA-SemiBold.woff2);
+}
+@font-face {
+  font-family: 'LeMurmure-Regular';
+  src: url(/fonts/LeMurmure-Regular.woff2);
+}
