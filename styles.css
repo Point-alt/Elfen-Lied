@@ -1,11 +1,17 @@
 /* Общие стили */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: 'EuclidCircularA-Regular', sans-serif;
   background-color: #AE97EB;
   margin: 0;
   padding: 20px;
   color: white;
+  width: 100%;
 }
+
 
 /* Хедер */
 .header {
@@ -54,7 +60,7 @@ body {
 /* Баннеры */
 .banner {
   display: flex;
-  justify-content:space-between;
+  justify-content: space-between;
   gap: 20px;
 }
 
@@ -67,22 +73,23 @@ body {
 }
 
 .banner-item {
-  width: 340px; 
+  width: 340px;
   height: 1038px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  transition: width 0.3s ease-in-out; 
+  transition: all 0.5s ease-in-out;
   border-radius: 20px;
   position: relative;
+  overflow: hidden;
 }
 
 .banner-item.active {
-  width: 400px;
+  width: 80%;
+  position: relative;
 }
 
-/* Картинка товара */
 .banner-item .img {
   position: absolute;
   width: 260px;
@@ -90,39 +97,8 @@ body {
   transition: transform 0.3s ease-in-out;
 }
 
-.banner-item .img1 {
-  position: absolute;
-  width: 260px;
-  height: 376px;
-  transition: transform 0.3s ease-in-out;
-  margin-left: 35%;
-}
-
 .banner-item.active .img {
-  transform: scale(1.5);
-}
-
-.banner-item.active .img1 {
-  transform: scale(1.5);
-}
-
-.icons-container {
-  right: 30%;
-  display:flex;
-  gap: 2em;
-  margin-bottom: 850px;
-}
-
-.icons-container .icon {
-  width: 26px;
-  height: 26px;
-  transition: opacity 0.3s ease-in-out;
-}
-
-.banner-item.active .icons-container .icon {
-  transform: none !important; 
-  width: 26px;
-  height: 26px;
+  transform: scale(2);
 }
 
 /* Стили для баннеров */
@@ -130,31 +106,37 @@ body {
   position: relative;
   flex-grow: 1;
   margin-right: auto;
-  align-items: flex-start;
+  align-items: center;
   text-align: left;
   padding: 40px;
+}
+
+.banner-item.active:nth-child(1) {
   background: url('img/Benjamin.svg') no-repeat center center;
-  background-size:contain;
+  background-size: contain;
 }
 
 .banner-item:nth-child(1) h2 {
   position: absolute;
-  bottom: 25%;
+  bottom: 22%;
   left: 40px;
-  font-size: 48px;
-  font-weight: bold;
+  font-size: 28px;
+  font-weight: 500;
 }
 
 .banner-item:nth-child(1) p {
   position: absolute;
-  bottom: 17%;
+  bottom: 12%;
   left: 40px;
-  font-size: 18px;
+  font-size: 15px;
+  font-weight: 500;
   max-width: 300px;
 }
 
 .price {
-  margin-top: 85%;
+  position: absolute;
+  left: 3%;
+  bottom: 5%;
 }
 
 .banner-item:nth-child(1) .buy-btn {
@@ -165,38 +147,90 @@ body {
   background: none;
 }
 
-.buy-btn img {
-  pointer-events: none;
+.banner-item:nth-child(2) h2 {
+  position: absolute;
+  bottom: 20%;
+  left: 40px;
+  font-size: 28px;
+  font-weight: 500;
+}
+
+.banner-item:nth-child(2) p {
+  position: absolute;
+  bottom: 12%;
+  left: 40px;
+  font-size: 15px;
+  font-weight: 500;
+  max-width: 300px;
+}
+
+.banner-item:nth-child(2) .buy-btn {
+  position: absolute;
+  bottom: 50px;
+  right: 50px;
+  border: none;
+  background: none;
 }
 
 .banner-item:nth-child(2) {
   background-color: #FA8FEF;
 }
 
+.banner-item.active:nth-child(2) {
+  background: url('img/Paint.svg') no-repeat center center;
+  background-size: contain;
+  background-color: #FA8FEF;
+}
+
+.banner-item:nth-child(3) h2 {
+  position: absolute;
+  bottom: 20%;
+  left: 40px;
+  font-size: 28px;
+  font-weight: 500;
+}
+
+.banner-item:nth-child(3) p {
+  position: absolute;
+  bottom: 12%;
+  left: 40px;
+  font-size: 15px;
+  font-weight: 500;
+  max-width: 300px;
+}
+
+.banner-item:nth-child(3) .buy-btn {
+  position: absolute;
+  bottom: 50px;
+  right: 50px;
+  border: none;
+  background: none;
+}
+
 .banner-item:nth-child(3) {
   background-color: #AECFFF;
 }
 
-.banner-item.search-banner {
-  line-height: 55em;
+.banner-item.active:nth-child(3) {
+  background: url('img/Benjamin2.svg') no-repeat center center;
+  background-size: contain;
+  background-color: #AECFFF;
 }
 
-.search-container {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+/* Анимация скрытия элементов при неактивном баннере */
+.banner-item:not(.active) .prew,
+.banner-item:not(.active) .price,
+.banner-item:not(.active) .buy-btn {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease-in-out;
 }
 
-.search-icon {
-  width: 26px;
-  height: 26px;
-}
-
-.search-link {
-  text-decoration: none;
-  color: white;
-  font-size: 18px;
-  transition: opacity 0.3s ease-in-out;
+.banner-item.active .prew,
+.banner-item.active .price,
+.banner-item.active .buy-btn {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 /* Стили для секции "Категории" */
@@ -206,12 +240,14 @@ body {
 }
 
 .categories-title {
-  font-size: 32px;
-  margin-bottom: 30px;
+  font-weight: 500;
+  font-size: 60px;
   font-family: 'EuclidCircularA-Regular', sans-serif;
 }
 
 .categories-container {
+  margin-top: -10%;
+  position: relative;
   display: flex;
   justify-content: center;
   gap: 10%;
@@ -219,11 +255,9 @@ body {
 }
 
 .category-item {
-  position: relative;
-  width: 250px;
+  max-width: 250px;
   padding: 20px;
   background: rgba(255, 255, 255, 0.2);
-  border-radius: 20px;
   text-align: center;
   transition: all 0.3s ease-in-out;
   background: none;
@@ -236,32 +270,33 @@ body {
 }
 
 .category-name {
-  position:absolute;
+  position:relative;
   font-size: 18px;
-  top:10%;
+  top:20%;
+  right: 35%;
 }
 
 .category-toggle {
-  position: absolute;
-  bottom: -20px; 
-  left: 50%;
+  position: relative;
+  bottom: 30%; 
+  left: -0.5%;
   transform: translateX(-50%);
   background: none;
   border: none;
 }
 
 .category-item .mirror {
-  position: absolute;
-  width: 40%;
-  bottom: 25%;
-  left: 30%;
+  position: relative;
+  width: 45%;
+  bottom: 40%;
+  left: 23%;
 }
 
 .category-item .plashka{
-  position: absolute;
+  position: relative;
   width: 20%;
-  top: 32%;
-  left: 79%; 
+  top: 22%;;
+  left: 44%; 
   transform: rotate(-15deg); 
 }
 
@@ -274,42 +309,55 @@ body {
   filter: hue-rotate(90deg);
 }
 
-
+/* раскрытие категорий  */
 .category-products {
-  position: absolute;
-  top: 100%;
+  margin-top: -10%;
   left: 0;
-  width: 100vw;
+  position: absolute;
   display: none;
   opacity: 0;
   transform: translateY(10px);
   transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-  gap: 85px;
-  margin-top: 50px;
-  z-index: 10; 
-  display: flex;
-  justify-content: flex-start;
+  z-index: 10;  
+  gap: 180px;
+  flex-wrap: wrap;
+}
+
+.product-title {
+  font-weight: 500;
+}
+
+.product-price {
+  font-weight: 400;
+  white-space: nowrap;
 }
 
 .category-products.active {
   display: flex;
   opacity: 1;
-  transform: translateY(0);  justify-content: flex-start;
+  transform: translateY(10px); 
 }
 
 .product-item {
   background: none;
   max-width: 250px;
-  min-width: 150px;
-  padding: 10px;
-  border-radius: 10px;
-  text-align: center;
+  min-width: 200px;
 }
 
 .product-item img{
-  width: 40%;
+  width: 45%;
 }
 
+.price-and-price {
+  display: flex;
+  justify-content: space-between;
+}
+
+.price-and-price .buy-btn {
+  width: 90%;
+  background: none;
+  border: none;
+}
 
 /* Стили для модального окна корзины*/
 #cartModal {
@@ -398,4 +446,82 @@ body {
   width: 100%;
   height: 400px;
   border-radius: 10px;
+}
+
+.lines {
+  margin-top: 13%;
+}
+
+/* Стили для "Блога" */
+.blog {
+  position: relative;
+  text-align: center;
+  margin-top: 15%;
+}
+
+.paginator {
+  position: absolute;
+  top: -20%;
+  left: 5%;
+}
+
+.blog-title {
+  position: absolute;
+  top: -40%;
+  left: 10%;
+  font-weight: 500;
+  font-size: 60px;
+  font-family: 'EuclidCircularA-Regular', sans-serif;
+}
+
+.slider-img {
+  position: absolute;
+  top: -22%;
+  right: 4%;
+}
+
+/* Стили для слайдера */
+.slider {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.slider-wrapper {
+  display: flex;
+  transition: transform 0.7s ease-in-out;
+}
+
+.slide {
+  min-width: 100%;
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+/* Кнопки навигации */
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  background: none;
+  color: white;
+  border: none;
+  padding: 15px;
+  cursor: pointer;
+  font-size: 30px;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(165, 89, 236, 0.8);
+  border-radius: 20px;
 }
